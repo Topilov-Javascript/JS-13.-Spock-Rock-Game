@@ -1,6 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+#confetti-canvas {
+  position: fixed;
+}
+
 html {
   box-sizing: border-box;
   user-select: none;
@@ -45,6 +49,7 @@ h1 {
 
 h2 {
   margin-bottom: 20px;
+  cursor: default;
 }
 
 .icons {
@@ -57,23 +62,30 @@ h2 {
 .far {
   font-size: 50px;
   margin: 0 10px;
+  transition: all 0.1s ease-in-out;
 }
 
-#player .far,
-#player .choice {
+#player .far{
   color: dodgerblue;
   cursor: pointer;
+}
+#player .choice {
+  color: dodgerblue
 }
 
 #computer .far,
 #computer .choice {
   color: rgb(255, 0, 0);
-  cursor: pointer;
 }
 
 #player .far:last-of-type,
 #computer .far:last-of-type {
   margin-right: 0;
+}
+
+#player .far:first-of-type,
+#computer .far:first-of-type {
+  margin-left: 0;
 }
 
 .selected {
@@ -88,7 +100,6 @@ h2 {
   font-size: 30px;
   cursor: pointer;
   margin: 15px auto;
-  display: block;
 }
 
 .result-container {
@@ -101,6 +112,7 @@ h2 {
 .result-text {
   font-size: 40px;
   margin: unset;
+  height: 3rem;
 }
 
 /* Media Query: Large Smartphone (Vertical) */
@@ -123,8 +135,20 @@ h2 {
     font-size: 22px;
   }
 
+  h2 {
+    text-align: center;
+  }
+
+  .player-container {
+    padding: 0;
+  }
+
   .far {
     font-size: 43px;
+  }
+
+  .reset-container {
+    margin-top: 25px;
   }
 
   .result-container {
